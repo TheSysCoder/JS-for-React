@@ -1,5 +1,7 @@
 import ArrayObjects from "./components/array-objects/array.component";
 import PropsData from "./components/props-working/props-data.component";
+import SpreadOperator from "./components/spread-operator/spread.component";
+import { students, numbers } from "./utils/database";
 function App() {
   // varibale declaration
   // types in javascript
@@ -68,6 +70,7 @@ function App() {
       </p>
       <ArrayObjects />
       <PropsData jobTypes={jobTypes} />
+      <SpreadOperator students={students} numbers={numbers} />
     </div>
   );
 }
