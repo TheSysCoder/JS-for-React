@@ -1,23 +1,73 @@
-import logo from './logo.svg';
-import './App.css';
-
+import ArrayObjects from "./components/array-objects/array.component";
+import PropsData from "./components/props-working/props-data.component";
 function App() {
+  // varibale declaration
+  // types in javascript
+  const firstName = `Pruthviraj sonawane`; //string
+  const age = 29; //int
+  const isSRE = true; // boolean
+  let changeName = null; // null value
+
+  let yearsofExp = 2;
+  console.log(yearsofExp);
+  yearsofExp = yearsofExp + 0.7;
+  const welcomeMsg = `Hello, ${firstName}`;
+  console.log(yearsofExp);
+
+  const user = {
+    firstName: "Mark",
+    age: 29,
+    job: "DevOps",
+    [firstName]: "New name",
+  };
+
+  console.log(user);
+
+  // arrays in js => user map and push
+
+  const myFavFruits = ["Apple", "Bitroot", "orange", 37, true];
+  myFavFruits.push("banana");
+
+  // distructuring
+  const name = ["Mark", "Tony"];
+
+  const [fname, sname] = name;
+
+  const userData = {
+    uName: "JOny",
+    uAge: 37,
+    count: 30000,
+  };
+
+  const { uName, uAge, ...otherData } = userData;
+  // spred operator
+
+  // props example
+  const jobTypes = ["DevOps", "SRE", "MERN", "ML"];
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <p>Hello World {firstName}</p>
+      <p>{welcomeMsg}</p>
+      <p>
+        {user.firstName} + {user.age} + {user.job} + {user[firstName]}
+      </p>
+      <p>{myFavFruits}</p>
+      <div>
+        {myFavFruits.map((fruit, index) => {
+          return (
+            <p key={index}>
+              {index} -{fruit}
+            </p>
+          );
+        })}
+      </div>
+      <p>{fname}</p>
+      <p>{sname}</p>
+      <p>
+        {uName} is {uAge} is old - {otherData.count}
+      </p>
+      <ArrayObjects />
+      <PropsData jobTypes={jobTypes} />
     </div>
   );
 }
